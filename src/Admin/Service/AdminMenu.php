@@ -69,7 +69,7 @@ class AdminMenu
 				'order' => $element['order'] ?? 0,
 				'uri' => $element['uri'] ?? '',
 				'icon' => $element['icon'] ?? '',
-				'title' => $element['title'] ?? '',
+				'title' => __($element['title'] ?? ''),
 			]);
 			// 子菜单
 			if (isset($element['children'])) {
@@ -80,7 +80,7 @@ class AdminMenu
 						'order' => $ele['order'] ?? 0,
 						'uri' => $ele['uri'] ?? '',
 						'icon' => $ele['icon'] ?? '',
-						'title' => $ele['title'] ?? '',
+						'title' => __($ele['title'] ?? ''),
 					]);
 				}
 			}
