@@ -8,17 +8,17 @@ class EnvChecker
 {
 	public static function isWeb(): bool
 	{
-		return self::isLocal() || self::isRole("web");
+		return self::isLocal() || self::isTesting() || self::isRole("web");
 	}
 
 	public static function isAdmin(): bool
 	{
-		return self::isLocal() || self::isRole("admin");
+		return self::isLocal() || self::isTesting() || self::isRole("admin");
 	}
 
 	public static function isApi(): bool
 	{
-		return self::isLocal() || self::isRole("api");
+		return self::isLocal() || self::isTesting() || self::isRole("api");
 	}
 
 	public static function isProduction(): bool
@@ -29,6 +29,11 @@ class EnvChecker
 	public static function isLocal(): bool
 	{
 		return self::isProfile("local");
+	}
+
+	public static function isTesting(): bool
+	{
+		return self::isProfile("testing");
 	}
 
 	public static function isProfile(string $name): bool
